@@ -241,9 +241,6 @@
     </details>
   </header-drawer>
 
-{% assign mainLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-2.png?v=1691695146' | asset_url %}
-{% assign scrollLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146' | asset_url %}
-
 <h1 class="header__heading">
   <a href="/" class="header__heading-link link link--text focus-inset">
     <div class="header__heading-logo-wrapper">
@@ -433,30 +430,33 @@
   </script>
 
 
-  <script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('.header__heading-logo-wrapper');
-  const mainLogo = '{{ mainLogo }}';
-  const scrollLogo = '{{ scrollLogo }}';
+<script type="text/javascript">
+  {% assign mainLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-2.png?v=1691695146' | asset_url %}
+  {% assign scrollLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146' | asset_url %}
 
-  let scrolledPastHeader = false;
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.header__heading-logo-wrapper');
+    const mainLogo = '{{ mainLogo }}';
+    const scrollLogo = '{{ scrollLogo }}';
 
-  function scrollHandler() {
-    if (window.pageYOffset > header.offsetTop + header.offsetHeight) {
-      if (!scrolledPastHeader) {
-        header.innerHTML = `<img src="${scrollLogo}" alt="Custom Drinkware" srcset="${scrollLogo} 500w, ${scrollLogo} 375w, ${scrollLogo} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">`;
-        scrolledPastHeader = true;
-      }
-    } else {
-      if (scrolledPastHeader) {
-        header.innerHTML = `<img src="${mainLogo}" alt="Custom Drinkware" srcset="${mainLogo} 500w, ${mainLogo} 375w, ${mainLogo} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">`;
-        scrolledPastHeader = false;
+    let scrolledPastHeader = false;
+
+    function scrollHandler() {
+      if (window.pageYOffset > header.offsetTop + header.offsetHeight) {
+        if (!scrolledPastHeader) {
+          header.innerHTML = `<img src="${scrollLogo}" alt="Custom Drinkware" srcset="${scrollLogo} 500w, ${scrollLogo} 375w, ${scrollLogo} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">`;
+          scrolledPastHeader = true;
+        }
+      } else {
+        if (scrolledPastHeader) {
+          header.innerHTML = `<img src="${mainLogo}" alt="Custom Drinkware" srcset="${mainLogo} 500w, ${mainLogo} 375w, ${mainLogo} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">`;
+          scrolledPastHeader = false;
+        }
       }
     }
-  }
 
-  window.addEventListener('scroll', scrollHandler);
-});
+    window.addEventListener('scroll', scrollHandler);
+  });
 </script>
 {%- endif -%}
 
