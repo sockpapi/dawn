@@ -3499,3 +3499,10 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+header.header.header--top-center.header--mobile-center.page-width.header--has-menu {
+    background: transparent!important;
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+}
