@@ -3500,13 +3500,8 @@ details-disclosure > details {
   }
 }
 
-.header__search {
+#cart-icon-bubble {
     display: none;
 }
-.header__icon--cart {
-    display: none;
-}
-.header-wrapper, .gradient, .color-background-1 {
-    background: transparent !important;
-}
+
 
