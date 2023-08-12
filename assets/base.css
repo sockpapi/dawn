@@ -3507,11 +3507,3 @@ details-modal.header__search {
     display: none !important;
 }
 
-
-header-wrapper, 
-.gradient, 
-.color-background-1, 
-.menu-drawer.motion-reduce.color-background-1 {
-    background: #fdfbf6 !important;
-}
-
