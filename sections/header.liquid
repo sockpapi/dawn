@@ -241,13 +241,16 @@
     </details>
   </header-drawer>
 
+{% assign mainLogo = 'printcountryv2-2.png' | asset_url %}
+{% assign scrollLogo = 'printcountryv2-3.png' | asset_url %}
+
 <h1 class="header__heading">
   <a href="/" class="header__heading-link link link--text focus-inset">
     <div class="header__heading-logo-wrapper">
       {% if section.settings.scrolled_past_header %}
-        <img src="https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146" alt="Custom Drinkware" srcset="//c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=250 250w, //c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=375 375w, //c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=500 500w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">
+        <img src="{{ scrollLogo }}" alt="Custom Drinkware" srcset="{{ scrollLogo }} 500w, {{ scrollLogo }} 375w, {{ scrollLogo }} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">
       {% else %}
-        <img src="//c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=600" alt="Custom Drinkware" srcset="//c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=250 250w, //c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=375 375w, //c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=500 500w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">
+        <img src="{{ mainLogo }}" alt="Custom Drinkware" srcset="{{ mainLogo }} 500w, {{ mainLogo }} 375w, {{ mainLogo }} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">
       {% endif %}
     </div>
   </a>
