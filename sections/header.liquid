@@ -434,28 +434,29 @@
 
 
   <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('.section-header');
-    const logoInitial = "{{ 'printcountryv2-2.png' | asset_url }}";
-    const logoScrolled = "{{ 'printcountryv2-3.png' | asset_url }}";
-    let scrolledPastHeader = false;
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.header__heading-logo-wrapper');
+  const mainLogo = '{{ mainLogo }}';
+  const scrollLogo = '{{ scrollLogo }}';
 
-    function scrollHandler() {
-      if (window.scrollY > header.offsetHeight) {
-        if (!scrolledPastHeader) {
-          header.querySelector('.header__heading-logo-wrapper img').src = logoScrolled;
-          scrolledPastHeader = true;
-        }
-      } else {
-        if (scrolledPastHeader) {
-          header.querySelector('.header__heading-logo-wrapper img').src = logoInitial;
-          scrolledPastHeader = false;
-        }
+  let scrolledPastHeader = false;
+
+  function scrollHandler() {
+    if (window.pageYOffset > header.offsetTop + header.offsetHeight) {
+      if (!scrolledPastHeader) {
+        header.innerHTML = `<img src="${scrollLogo}" alt="Custom Drinkware" srcset="${scrollLogo} 500w, ${scrollLogo} 375w, ${scrollLogo} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">`;
+        scrolledPastHeader = true;
+      }
+    } else {
+      if (scrolledPastHeader) {
+        header.innerHTML = `<img src="${mainLogo}" alt="Custom Drinkware" srcset="${mainLogo} 500w, ${mainLogo} 375w, ${mainLogo} 250w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">`;
+        scrolledPastHeader = false;
       }
     }
+  }
 
-    window.addEventListener('scroll', scrollHandler);
-  });
+  window.addEventListener('scroll', scrollHandler);
+});
 </script>
 {%- endif -%}
 
