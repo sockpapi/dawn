@@ -337,45 +337,43 @@
 
 onScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const logo = document.getElementById('logoImage');
+    const logo = document.getElementById('headerLogo');
+
+    console.log("Scroll function triggered."); // Log this to see if the function is being triggered
 
     if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
     if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        console.log("Scrolled past header bottom."); // Log this to see if this condition is met
         this.header.classList.add('scrolled-past-header');
         logo.src = "https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146";
-        // Also update the srcset if you want the image to be responsive.
         logo.srcset = "https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146&width=250 250w, ... other sizes ...";
-
         if (this.preventHide) return;
         requestAnimationFrame(this.hide.bind(this));
     } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        console.log("Scrolled upwards but still past header bottom."); // Log this to see if this condition is met
         this.header.classList.add('scrolled-past-header');
         logo.src = "https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146";
-        // Also update the srcset if you want the image to be responsive.
         logo.srcset = "https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146&width=250 250w, ... other sizes ...";
-
         if (!this.preventReveal) {
             requestAnimationFrame(this.reveal.bind(this));
         } else {
             window.clearTimeout(this.isScrolling);
-
             this.isScrolling = setTimeout(() => {
                 this.preventReveal = false;
             }, 66);
-
             requestAnimationFrame(this.hide.bind(this));
         }
     } else if (scrollTop <= this.headerBounds.top) {
+        console.log("Scrolled to the very top."); // Log this to see if this condition is met
         this.header.classList.remove('scrolled-past-header');
         logo.src = "//c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&width=600";
-        // Restore the original srcset.
         logo.srcset = "... original srcset values ...";
         requestAnimationFrame(this.reset.bind(this));
     }
-
     this.currentScrollTop = scrollTop;
 }
+
 
 
     hide() {
