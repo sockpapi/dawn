@@ -3508,3 +3508,10 @@ details-modal.header__search {
 }
 
 
+header-wrapper, 
+.gradient, 
+.color-background-1, 
+.menu-drawer.motion-reduce.color-background-1 {
+    background: transparent !important;
+}
+
