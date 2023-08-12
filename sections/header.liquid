@@ -142,7 +142,6 @@
     }
   }
 {%- endstyle -%}
-
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -431,9 +430,9 @@
 
 
 <script type="text/javascript">
-  {% assign mainLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-2.png?v=1691695146' | asset_url %}
-  {% assign scrollLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146' | asset_url %}
-
+    {% assign mainLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-2.png?v=1691695146' | asset_url %}
+    {% assign scrollLogo = 'https://cdn.shopify.com/s/files/1/0807/2324/7416/files/printcountryv2-3.png?v=1691695146' | asset_url %}
+  
   document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header__heading-logo-wrapper');
     const mainLogo = '{{ mainLogo }}';
