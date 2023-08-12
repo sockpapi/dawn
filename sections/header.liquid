@@ -165,194 +165,145 @@
       assign localization_forms = true
     endif
   -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-    {%- liquid
-      if section.settings.menu != blank
-        render 'header-drawer'
-      endif
+<header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+  {% if section.settings.menu != blank %}
+    <a href="https://www.google.com" class="header__button">Click Me</a>
+  {% endif %}
 
-      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
-      endif
-    -%}
+  <header-drawer data-breakpoint="tablet">
+    <details id="Details-menu-drawer-container" class="menu-drawer-container">
+      <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="Menu" role="button" aria-expanded="false" aria-controls="menu-drawer">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-hamburger" fill="none" viewBox="0 0 18 16">
+            <path d="M1 .5a.5.5 0 100 1h15.71a.5.5 0 000-1H1zM.5 8a.5.5 0 01.5-.5h15.71a.5.5 0 010 1H1A.5.5 0 01.5 8zm0 7a.5.5 0 01.5-.5h15.71a.5.5 0 010 1H1a.5.5 0 01-.5-.5z" fill="currentColor"></path>
+          </svg>
 
-    {%- if section.settings.logo_position != 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo motion-reduce',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+            <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"></path>
+          </svg>
+        </span>
+      </summary>
+      <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-background-1">
+        <div class="menu-drawer__inner-container">
+          <div class="menu-drawer__navigation-container">
+            <nav class="menu-drawer__navigation">
+              <ul class="menu-drawer__menu has-submenu list-menu" role="list">
+                <li>
+                  <a id="HeaderDrawer-home" href="/" class="menu-drawer__menu-item list-menu__item link link--text focus-inset menu-drawer__menu-item--active" aria-current="page">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a id="HeaderDrawer-catalog" href="/collections/all" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                    Catalog
+                  </a>
+                </li>
+                <li>
+                  <a id="HeaderDrawer-contact" href="/pages/contact" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="menu-drawer__utility-links">
+              <div class="menu-drawer__localization header-localization">
               </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %}
-
-    {%- if section.settings.logo_position == 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(min-width: 750px) {{ settings.logo_width }}px, 50vw{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      <div class="desktop-localization-wrapper">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <noscript class="small-hide medium-hide">
-            {%- form 'localization', id: 'HeaderCountryMobileFormNoScript', class: 'localization-form' -%}
-              <div class="localization-form__select">
-                <h2 class="visually-hidden" id="HeaderCountryMobileLabelNoScript">{{ 'localization.country_label' | t }}</h2>
-                <select class="localization-selector link" name="country_code" aria-labelledby="HeaderCountryMobileLabelNoScript">
-                  {%- for country in localization.available_countries -%}
-                    <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-                      {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
-                    </option>
-                  {%- endfor -%}
-                </select>
-                {% render 'icon-caret' %}
-              </div>
-              <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
-            {%- endform -%}
-          </noscript>
-
-          <localization-form class="small-hide medium-hide no-js-hidden">
-            {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {% endif %}
-
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <noscript class="small-hide medium-hide">
-            {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
-              <div class="localization-form__select">
-                <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScript">{{ 'localization.language_label' | t }}</h2>
-                <select class="localization-selector link" name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
-                  {%- for language in localization.available_languages -%}
-                    <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
-                      {{ language.endonym_name | capitalize }}
-                    </option>
-                  {%- endfor -%}
-                </select>
-                {% render 'icon-caret' %}
-              </div>
-              <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
-            {%- endform -%}
-          </noscript>
-
-          <localization-form class="small-hide medium-hide no-js-hidden">
-            {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-                {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
-
-      {%- if shop.customer_accounts_enabled -%}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
-          {% render 'icon-account' %}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
-      {%- endif -%}
-
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {%- liquid
-          if cart == empty
-            render 'icon-cart-empty'
-          else
-            render 'icon-cart'
-          endif
-        -%}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              <ul class="list list-social list-unstyled" role="list"></ul>
+            </div>
           </div>
-        {%- endif -%}
-      </a>
-    </div>
-  </header>
-</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+        </div>
+      </div>
+    </details>
+  </header-drawer>
 
-{%- if settings.cart_type == "notification" -%}
-  {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
-{%- endif -%}
+  <h1 class="header__heading">
+    <a href="/" class="header__heading-link link link--text focus-inset">
+      <div class="header__heading-logo-wrapper">
+        <img src="//c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=600" alt="Custom Drinkware" srcset="//c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=250 250w, //c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=375 375w, //c02d8a-3.myshopify.com/cdn/shop/files/printcountryv2-2.png?v=1691695146&amp;width=500 500w" width="250" height="34.664380205781484" loading="eager" class="header__heading-logo motion-reduce" sizes="(max-width: 500px) 50vw, 250px">
+      </div>
+    </a>
+  </h1>
+
+  <nav class="header__inline-menu">
+    <ul class="list-menu list-menu--inline" role="list">
+      <li>
+        <a id="HeaderMenu-home" href="/" class="header__menu-item list-menu__item link link--text focus-inset" aria-current="page">
+          <span class="header__active-menu-item">Home</span>
+        </a>
+      </li>
+      <li>
+        <a id="HeaderMenu-catalog" href="/collections/all" class="header__menu-item list-menu__item link link--text focus-inset">
+          <span>Catalog</span>
+        </a>
+      </li>
+      <li>
+        <a id="HeaderMenu-contact" href="/pages/contact" class="header__menu-item list-menu__item link link--text focus-inset">
+          <span>Contact</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="header__icons">
+    <div class="desktop-localization-wrapper">
+    </div>
+
+    <details-modal class="header__search">
+      <details>
+        <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="Search" role="button">
+          <span>
+            <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
+              <use href="#icon-search">
+            </svg>
+            <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
+              <use href="#icon-close">
+            </svg>
+          </span>
+        </summary>
+        <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="Search">
+          <div class="modal-overlay"></div>
+          <div class="search-modal__content search-modal__content-bottom" tabindex="-1">
+            <search-form class="search-modal__form">
+              <form action="/search" method="get" role="search" class="search search-modal__form">
+                <div class="field">
+                  <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value="" placeholder="Search">
+                  <label class="field__label" for="Search-In-Modal">Search</label>
+                  <input type="hidden" name="options[prefix]" value="last">
+                  <button type="reset" class="reset__button field__button hidden" aria-label="Clear search term">
+                    <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                      <use xlink:href="#icon-reset">
+                    </svg>
+                  </button>
+                  <button class="search__button field__button" aria-label="Search">
+                    <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                      <use href="#icon-search">
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </search-form>
+            <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="Close">
+              <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                <use href="#icon-close">
+              </svg>
+            </button>
+          </div>
+        </div>
+      </details>
+    </details-modal>
+
+    <a href="/cart" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+      <svg class="icon icon-cart-empty" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+        <path d="m15.75 11.8h-3.16l-.77 11.6a5 5 0 0 0 4.99 5.34h7.38a5 5 0 0 0 4.99-5.33l-.78-11.61zm0 1h-2.22l-.71 10.67a4 4 0 0 0 3.99 4.27h7.38a4 4 0 0 0 4-4.27l-.72-10.67h-2.22v.63a4.75 4.75 0 1 1 -9.5 0zm8.5 0h-7.5v.63a3.75 3.75 0 1 0 7.5 0z" fill="currentColor" fill-rule="evenodd"></path>
+      </svg>
+      <span class="visually-hidden">Cart</span>
+    </a>
+  </div>
+</header>
+
+{% if settings.cart_type == 'notification' %}
+  {% include 'cart-notification' %}
+{% endif %}
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
