@@ -3503,5 +3503,8 @@ details-disclosure > details {
 #cart-icon-bubble {
     display: none;
 }
+details-modal.header__search {
+    display: none !important;
+}
 
 
