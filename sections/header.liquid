@@ -28,6 +28,14 @@
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
+  body {
+  padding-top: 96px; /* Add a padding value equal to the height of the header */
+}
+
+.scrolled-past-header .header-wrapper {
+  background-color: transparent !important;
+}
+  
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
