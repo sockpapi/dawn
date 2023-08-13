@@ -83,15 +83,13 @@ function adjustFontSize(element) {
 
     while (contentWidth > parentWidth && element.style.fontSize !== "10px") {
         const currentSize = parseInt(window.getComputedStyle(element, null).getPropertyValue('font-size'));
-        if (currentSize > 10) { // Minimum font size, you can adjust this
+        if (currentSize > 10) {
             element.style.fontSize = (currentSize - 1) + "px";
         } else {
             break;
         }
     }
 }
-
-// Call this function on DOM ready or whenever you update the content
 adjustFontSize(document.querySelector('.single-line-text'));</script>
 {% schema %}
 {
