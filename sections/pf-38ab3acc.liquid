@@ -74,23 +74,7 @@ root.style.setProperty("--marquee-elements", marqueeContent.children.length);
 
 for(let i=0; i<marqueeElementsDisplayed; i++) {
   marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-}
-
-
-function adjustFontSize(element) {
-    const parentWidth = element.offsetWidth;
-    const contentWidth = element.scrollWidth;
-
-    while (contentWidth > parentWidth && element.style.fontSize !== "10px") {
-        const currentSize = parseInt(window.getComputedStyle(element, null).getPropertyValue('font-size'));
-        if (currentSize > 10) {
-            element.style.fontSize = (currentSize - 1) + "px";
-        } else {
-            break;
-        }
-    }
-}
-adjustFontSize(document.querySelector('.single-line-text'));</script>
+}</script>
 {% schema %}
 {
   "name": "PageFly Page 38ab3acc",
