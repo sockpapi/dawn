@@ -32,11 +32,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 		images: {{ product.images | json }},
 		quantity: {% assign quantity = '' %}{% for variant in product.variants %}{% assign quantity = quantity | append: variant.id | append: ':' | append: variant.inventory_quantity | append: ',' %}{% endfor %}{% assign quantity = quantity | split: ','%}{{quantity | json }}
 	};{% endunless %}
-	</script><div style="opacity:0" class="sc-cTAqQK ioVWj __pf __pf_X1HW_GPw" id="__pf"><div data-pf-type="Body" class="sc-eySxxw jcsinr pf-1_"><div data-pf-type="Layout" class="sc-bXdNzS eAOkDW pf-2_"><div data-section-id="pf-1f9c" data-pf-type="Section" class="sc-eSxRXt eFcmyr pf-3_"><div class="sc-jNHqnW kAyuLL"><div class="sc-efQSVx kdrjec pf-4_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-md:12;--c-lg:12"><div data-pf-type="Column" class="sc-fvpsdx eVTiRY pf-5_"><div data-pf-type="Custom.HTML" class="sc-gGCDDS dzYEfz pf-6_"><div class="TagContainer">
-    <button class="TagButton" style="background-color: #B8E2F2;">Fan Favorite</button>
-    <button class="TagButton" style="background-color: #FAA9B8;">Tumbler</button>
-</div>
-</div></div></div></div><div class="sc-efQSVx kdrjec pf-7_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:7"><div data-pf-type="Column" class="sc-fvpsdx eVTiRY pf-8_"><div data-product-id="{{ product.id }}" data-media-id="{% liquid
+	</script><div style="opacity:0" class="sc-cTAqQK ioVWj __pf __pf_X1HW_GPw" id="__pf"><div data-pf-type="Body" class="sc-eySxxw jcsinr pf-1_"><div data-pf-type="Layout" class="sc-bXdNzS eAOkDW pf-2_"><div data-section-id="pf-1f9c" data-pf-type="Section" class="sc-eSxRXt eFcmyr pf-3_"><div class="sc-jNHqnW kAyuLL"><div class="sc-efQSVx kdrjec pf-7_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-sm:6;--c-md:6;--c-lg:7"><div data-pf-type="Column" class="sc-fvpsdx eVTiRY pf-8_"><div data-product-id="{{ product.id }}" data-media-id="{% liquid
     assign min = 10000000000
     assign max = 99999999999
     assign diff = max | minus: min
