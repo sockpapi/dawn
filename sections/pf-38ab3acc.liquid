@@ -329,6 +329,10 @@ for(let i=0; i<marqueeElementsDisplayed; i++) {
 
 
 document.getElementById('showForm').addEventListener('click', function() {
+    var formScript = document.createElement('script');
+    formScript.type = 'text/javascript';
+    formScript.src = 'https://form.jotform.com/jsform/232256652749161';
+    document.getElementById('formContainer').appendChild(formScript);
     document.getElementById('lightbox').style.display = 'block';
 });
 
