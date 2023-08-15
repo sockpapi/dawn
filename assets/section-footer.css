@@ -508,14 +508,3 @@
     }
   }
 }
-
-/* Todd Edits */
-.button.action.next.submit.flat-button.wizard__submit {
-  border-radius: 20px;
-}
-.footer.wizard__footer {
-  margin-top: 5px;
-}
-.globo-form-app .message + .footer {
-  margin-top: 0px !important;
-}
