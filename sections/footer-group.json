@@ -2,68 +2,14 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "27ff3abc-70ff-4baf-90df-70340b8d5d08": {
+      "type": "pagefly-section",
+      "settings": {
+        "section_id": ""
+      }
+    },
     "footer": {
       "type": "footer",
-      "blocks": {
-        "3ad25ee8-4f80-4cab-8bac-1d63354e6d06": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/printcountryv2-2.png",
-            "image_width": 230,
-            "alignment": "center"
-          }
-        },
-        "footer-1": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Info",
-            "menu": "footer"
-          }
-        },
-        "footer-2": {
-          "type": "text",
-          "settings": {
-            "heading": "<strong>Our mission<\/strong>",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
-          }
-        },
-        "30a49b19-3bf3-42c7-aeae-32c28b661abc": {
-          "type": "shopify:\/\/apps\/hulk-form-builder\/blocks\/form-block\/b6b8dd14-356b-4725-a4ed-77232212b3c3",
-          "settings": {
-            "form_uuid": "",
-            "form_settings": false,
-            "font_color": "#000000",
-            "size": 14,
-            "input_background_color": "#FFF",
-            "input_background_color_focus": "#F4DADA",
-            "input_border_radius": 1,
-            "input_border_color": "#ebe9e9",
-            "input_border_color_focus": "#2D2727",
-            "input_font_color": "#3D3131",
-            "input_size": 14,
-            "border_color": "#121212",
-            "border_radius": 2,
-            "border": 1,
-            "fill_color": "#EBE9E9",
-            "padding": 35,
-            "form_width": 600,
-            "btn_text": "Submit",
-            "sub_btn_txt_color": "#F3F3F3",
-            "sub_btn_bg_color": "#3F3333",
-            "sub_btn_font_size": 14,
-            "sub_btn_bdr_color": "#FFFFFF",
-            "sub_btn_bdr_rad": 3,
-            "sub_btn_bdr_width": 1,
-            "fonts": "Times New Roman"
-          }
-        }
-      },
-      "block_order": [
-        "3ad25ee8-4f80-4cab-8bac-1d63354e6d06",
-        "footer-1",
-        "footer-2",
-        "30a49b19-3bf3-42c7-aeae-32c28b661abc"
-      ],
       "settings": {
         "color_scheme": "background-1",
         "newsletter_enable": false,
@@ -81,6 +27,7 @@
     }
   },
   "order": [
+    "27ff3abc-70ff-4baf-90df-70340b8d5d08",
     "footer"
   ]
 }
