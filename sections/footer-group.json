@@ -5,7 +5,7 @@
     "27ff3abc-70ff-4baf-90df-70340b8d5d08": {
       "type": "pagefly-section",
       "custom_css": [
-        "button.action.next.submit.flat-button.wizard__submit {border-radius: 20px;}"
+
       ],
       "settings": {
         "section_id": "pf-d27af2d2"
