@@ -3502,9 +3502,4 @@ details-disclosure > details {
 
 
 /* Todd Edits */
-.footer.wizard__footer {
-  margin-top: 5px;
-}
-.globo-form-app .message + .footer {
-  margin-top: 0px !important;
-}
+
