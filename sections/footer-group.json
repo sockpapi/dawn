@@ -6,7 +6,8 @@
       "type": "pagefly-section",
       "custom_css": [
         "button.action.next.submit.flat-button.wizard__submit {border-radius: 20px;}",
-        "footer.wizard__footer {margin-top: 5px;}"
+        "footer.wizard__footer {margin-top: 5px;}",
+        "globo-form-app .message+.footer {margin-top: 0px !important;}"
       ],
       "settings": {
         "section_id": "pf-d27af2d2"
