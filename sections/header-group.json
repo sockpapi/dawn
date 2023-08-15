@@ -5,9 +5,9 @@
     "header": {
       "type": "header",
       "custom_css": [
-        ".header__inline-menu .list-menu--inline li {margin-right: 20px; \/* Adjust this value to your preference *\/}",
-        ".header__inline-menu .list-menu--inline li:last-child {margin-right: 0;}",
-        ".header__inline-menu .list-menu--inline li a {font-size: 16px;}"
+        ".header__inline-menu .list-menu--inline li {margin-right: 20px !important;}",
+        ".header__inline-menu .list-menu--inline li:last-child {margin-right: 0 !important;}",
+        ".header__inline-menu .list-menu--inline li a {font-size: 16px !important;}"
       ],
       "settings": {
         "logo_position": "middle-left",
