@@ -12,6 +12,14 @@
             "menu": "footer"
           }
         },
+        "3ad25ee8-4f80-4cab-8bac-1d63354e6d06": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/printcountryv2-2.png",
+            "image_width": 230,
+            "alignment": "center"
+          }
+        },
         "footer-1": {
           "type": "link_list",
           "settings": {
@@ -22,13 +30,14 @@
         "footer-2": {
           "type": "text",
           "settings": {
-            "heading": "Our mission",
+            "heading": "<strong>Our mission<\/strong>",
             "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
           }
         }
       },
       "block_order": [
         "footer-0",
+        "3ad25ee8-4f80-4cab-8bac-1d63354e6d06",
         "footer-1",
         "footer-2"
       ],
