@@ -33,6 +33,9 @@
     },
     "894f5b83-7210-43f8-82f5-f82d8578c366": {
       "type": "pagefly-section",
+      "custom_css": [
+        ".pf-bcc1f21bf28c-2_ {position: sticky;}"
+      ],
       "settings": {
         "section_id": "pf-bcc1f21b"
       }
