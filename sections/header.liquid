@@ -85,31 +85,6 @@
       padding-top: 0.5rem;
     }
   }
-
-
-/* Todd Edits */
-  .header__button-wrapper {
-  text-align: right;
-}
-
-.header__button {
-  display: inline-block;
-  border-radius: 30px;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #1A2A6B;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.header__button:hover {
-  background-color: #f8e257;
-  color: black;
-  transform: scale(1.2);
-  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 4px 6px);
-}
 </style>
 
 {%- style -%}
@@ -261,13 +236,8 @@
         </h1>
       {%- endif -%}
     {%- endif -%}
-  <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
 
-  <!-- Start of the button code -->
-  <div class="header__button-wrapper">
-    <a href="https://www.google.com" class="header__button">Get Started Now</a>
-  </div>
-  <!-- End of the button code -->
+    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <noscript class="small-hide medium-hide">
