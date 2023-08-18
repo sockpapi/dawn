@@ -73,13 +73,19 @@
       </div>
     </div>
   </div>
-  <script>
-      document.getElementById('showForm').addEventListener('click', function() {
-        var formScript = document.createElement('script');
-        formScript.type = 'text/javascript';
-        formScript.src = 'https://form.jotform.com/jsform/232256652749161';
-        document.getElementById('formContainer').appendChild(formScript);
-        document.getElementById('lightbox').style.display = 'block';
+<script>
+    // Get all elements with the class "showForm"
+    var buttons = document.querySelectorAll('.showForm');
+
+    // For each button, add the event listener
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var formScript = document.createElement('script');
+            formScript.type = 'text/javascript';
+            formScript.src = 'https://form.jotform.com/jsform/232256652749161';
+            document.getElementById('formContainer').appendChild(formScript);
+            document.getElementById('lightbox').style.display = 'block';
+        });
     });
 
     document.getElementById('exitButton').addEventListener('click', function() {
@@ -91,5 +97,5 @@
             document.getElementById('lightbox').style.display = 'none';
         }
     });
-  </script>
+</script>
 </body>
