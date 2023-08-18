@@ -74,10 +74,10 @@
     </div>
   </div>
 <script>
-    // Get all elements with the class "showForm"
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing script
     var buttons = document.querySelectorAll('.showForm');
 
-    // For each button, add the event listener
     buttons.forEach(function(button) {
         button.addEventListener('click', function() {
             var formScript = document.createElement('script');
@@ -97,5 +97,7 @@
             document.getElementById('lightbox').style.display = 'none';
         }
     });
+});
+
 </script>
 </body>
