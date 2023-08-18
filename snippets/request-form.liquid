@@ -1,0 +1,120 @@
+{% comment %}
+  Popup Form for request for Mockups.
+{% endcomment %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightbox Form</title>
+  <style>
+    #showForm {
+    	background-color: #1a2a6b;
+    	color: rgb(255, 255, 255);
+    	font-family: var(--pf-secondary-font);
+    	padding: 15px 10px;
+    	border-radius: 20px;
+    	width: 90%;
+    	margin-top: 20px;
+    	margin-left: auto;
+    	margin-right: auto;
+    	transition: transform 0.3s ease, background 0.3s ease;
+    	border-style: none;
+    	font-size: 20px;
+    	font-weight: 400;
+    	cursor: pointer;
+    	text-align: center;
+    }
+    #showForm:hover {
+    	transform: scale(1.05);
+    	background: #FDE12D;
+    	color: black;
+    	transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .lightbox {
+    	display: none;
+    	position: fixed;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    	background-color: rgba(0,0,0,0.7);
+    	z-index: 9999;
+    }
+    .lightbox-content {
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+    	width: 100%;
+    	max-width: 900px;
+    	background-color: #fff;
+    	padding: 20px;
+    	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .exit-button {
+    	position: absolute;
+    	top: 10px;
+    	right: 10px;
+    	background: none;
+    	border: none;
+    	font-size: 20px;
+    	cursor: pointer;
+    }
+    /* Resetting styles for the form controls */ .globo-form-control {
+    	width: 100%;
+    	box-sizing: border-box;
+    }
+    /* First row: First Name and Last Name */ .globo-form-control:nth-child(1), .globo-form-control:nth-child(2) {
+    	width: 48%;
+    	/* slightly less than half to account for any potential margins or padding */     float: left;
+    }
+    /* Clear the float for the next elements */ .globo-form-control:nth-child(3)::before {
+    	content: "";
+    	display: table;
+    	clear: both;
+    }
+    /* Second row: Email, Phone Number, Order Quantity */ .globo-form-control:nth-child(3), .globo-form-control:nth-child(4) {
+    	width: 40%;
+    	float: left;
+    }
+    .globo-form-control:nth-child(5) {
+    	width: 20%;
+    	float: left;
+    }
+    /* Clear the float for the next elements */ .globo-form-control:nth-child(6)::before {
+    	content: "";
+    	display: table;
+    	clear: both;
+    }
+  </style>
+</head>
+<body>
+  <button id="showForm">Get Free Custom Designs</button>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="exit-button" id="exitButton">X</button>
+      <div id="formContainer">
+        <div class="globo-formbuilder" data-id="MTE5NTg="></div>
+      </div>
+    </div>
+  </div>
+  <script>
+      document.getElementById('showForm').addEventListener('click', function() {
+        var formScript = document.createElement('script');
+        formScript.type = 'text/javascript';
+        formScript.src = 'https://form.jotform.com/jsform/232256652749161';
+        document.getElementById('formContainer').appendChild(formScript);
+        document.getElementById('lightbox').style.display = 'block';
+    });
+
+    document.getElementById('exitButton').addEventListener('click', function() {
+        document.getElementById('lightbox').style.display = 'none';
+    });
+
+    document.getElementById('lightbox').addEventListener('click', function(event) {
+        if (event.target === this) {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    });
+  </script>
+</body>
