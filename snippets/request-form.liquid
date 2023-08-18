@@ -73,31 +73,32 @@
       </div>
     </div>
   </div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Your existing script
-    var buttons = document.querySelectorAll('.showForm');
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("Everything is fully loaded"); // This will log the message
 
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var formScript = document.createElement('script');
-            formScript.type = 'text/javascript';
-            formScript.src = 'https://form.jotform.com/jsform/232256652749161';
-            document.getElementById('formContainer').appendChild(formScript);
-            document.getElementById('lightbox').style.display = 'block';
+        // Your existing script
+        var buttons = document.querySelectorAll('.showForm');
+
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var formScript = document.createElement('script');
+                formScript.type = 'text/javascript';
+                formScript.src = 'https://form.jotform.com/jsform/232256652749161';
+                document.getElementById('formContainer').appendChild(formScript);
+                document.getElementById('lightbox').style.display = 'block';
+            });
+        });
+
+        document.getElementById('exitButton').addEventListener('click', function() {
+            document.getElementById('lightbox').style.display = 'none';
+        });
+
+        document.getElementById('lightbox').addEventListener('click', function(event) {
+            if (event.target === this) {
+                document.getElementById('lightbox').style.display = 'none';
+            }
         });
     });
-
-    document.getElementById('exitButton').addEventListener('click', function() {
-        document.getElementById('lightbox').style.display = 'none';
-    });
-
-    document.getElementById('lightbox').addEventListener('click', function(event) {
-        if (event.target === this) {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-    });
-});
-
-</script>
+  </script>
 </body>
